@@ -41,9 +41,11 @@ class NoteViewController: UIViewController {
         noteCell.configure(note: MainViewController.notes[index])
         noteCell.configureLabels()
     }
-    
+
     private func setupNavigationBarItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
+        doneButton.accessibilityIdentifier = "notes.note.done.button"
+        navigationItem.rightBarButtonItem = doneButton
     }
 
     private func setupTextView() {

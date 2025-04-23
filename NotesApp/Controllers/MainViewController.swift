@@ -26,8 +26,9 @@ class MainViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.accessibilityIdentifier = "notes.main.search.searchbar"
         definesPresentationContext = true
-        
+
         setupNavigationController()
         setupTableView()
         setupButton()
@@ -68,6 +69,7 @@ class MainViewController: UIViewController {
         label.text = "No notes yet"
         label.font = .systemFont(ofSize: 20)
         label.textColor = .systemGray
+        label.accessibilityIdentifier = "notes.main.noNotes.label"
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: 30),

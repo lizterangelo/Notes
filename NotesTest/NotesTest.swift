@@ -23,12 +23,47 @@ final class NotesTest: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testAddNewNote() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // 1. Tap the add button
+        let addButton = app.buttons["notes.main.add.button"]
+        XCTAssertTrue(addButton.waitForExistence(timeout: 5), "Add button should exist")
+        addButton.tap()
+
+        // 2. Find the title text field and type "Thesis Test"
+        let titleTextField = app.textFields["notes.note.title.textfield"]
+        XCTAssertTrue(titleTextField.waitForExistence(timeout: 5), "Title text field should exist")
+        titleTextField.tap()
+        titleTextField.typeText("Thesis Test")
+
+        // 3. Find the body text view and type "Hello World"
+        let bodyTextView = app.textViews["notes.note.body.textview"]
+        XCTAssertTrue(bodyTextView.waitForExistence(timeout: 5), "Body text view should exist")
+        bodyTextView.tap()
+        bodyTextView.typeText("Hello World")
+
+        // 4. Tap the Done button (optional, dismisses keyboard)
+        let doneButton = app.buttons["notes.note.done.button"]
+         if doneButton.exists {
+             doneButton.tap()
+         }
+
+        // 5. Tap the back button
+        // The back button's identifier is usually the title of the previous screen ("Notes" in this case)
+        // Or we can access it by position.
+        let backButton = app.navigationBars.buttons.element(boundBy: 0) // Assumes it's the first button
+        XCTAssertTrue(backButton.waitForExistence(timeout: 5), "Back button should exist")
+        backButton.tap()
+
+        // 6. Verify that a cell with the title "Thesis Test" exists in the main view's table
+        let notesTable = app.tables["notes.main.notes.tableview"]
+        XCTAssertTrue(notesTable.waitForExistence(timeout: 5), "Notes table should exist")
+
+        // Check for a static text element within the table that matches the title
+        let newNoteCellTitle = notesTable.staticTexts["Thesis Test"]
+        XCTAssertTrue(newNoteCellTitle.waitForExistence(timeout: 5), "Newly added note with title 'Thesis Test' should exist in the table")
     }
 
     @MainActor
