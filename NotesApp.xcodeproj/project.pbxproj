@@ -26,7 +26,18 @@
 		C8DC76D4278E14EA00E77A52 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC76D3278E14EA00E77A52 /* AddButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A704E74C2DB87A16006E7DFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DC76AE278E0E5200E77A52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8DC76B5278E0E5200E77A52;
+			remoteInfo = NotesApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		A704E7462DB87A16006E7DFF /* NotesTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84E478B2C0714CE004C2D85 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		C84E478D2C0714DE004C2D85 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		C865FA5B27973AE000F0270E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -48,7 +59,18 @@
 		C8DC76D3278E14EA00E77A52 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A704E7472DB87A16006E7DFF /* NotesTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NotesTest; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		A704E7432DB87A16006E7DFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8DC76B3278E0E5200E77A52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				C8DC76B8278E0E5200E77A52 /* NotesApp */,
+				A704E7472DB87A16006E7DFF /* NotesTest */,
 				C8DC76B7278E0E5200E77A52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C8DC76B6278E0E5200E77A52 /* NotesApp.app */,
+				A704E7462DB87A16006E7DFF /* NotesTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,6 +159,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A704E7452DB87A16006E7DFF /* NotesTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A704E74E2DB87A16006E7DFF /* Build configuration list for PBXNativeTarget "NotesTest" */;
+			buildPhases = (
+				A704E7422DB87A16006E7DFF /* Sources */,
+				A704E7432DB87A16006E7DFF /* Frameworks */,
+				A704E7442DB87A16006E7DFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A704E74D2DB87A16006E7DFF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A704E7472DB87A16006E7DFF /* NotesTest */,
+			);
+			name = NotesTest;
+			packageProductDependencies = (
+			);
+			productName = NotesTest;
+			productReference = A704E7462DB87A16006E7DFF /* NotesTest.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C8DC76B5278E0E5200E77A52 /* NotesApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8DC76CA278E0E5300E77A52 /* Build configuration list for PBXNativeTarget "NotesApp" */;
@@ -159,9 +206,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					A704E7452DB87A16006E7DFF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = C8DC76B5278E0E5200E77A52;
+					};
 					C8DC76B5278E0E5200E77A52 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -181,11 +232,19 @@
 			projectRoot = "";
 			targets = (
 				C8DC76B5278E0E5200E77A52 /* NotesApp */,
+				A704E7452DB87A16006E7DFF /* NotesTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A704E7442DB87A16006E7DFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8DC76B4278E0E5200E77A52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +257,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A704E7422DB87A16006E7DFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C8DC76B2278E0E5200E77A52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -222,6 +288,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A704E74D2DB87A16006E7DFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8DC76B5278E0E5200E77A52 /* NotesApp */;
+			targetProxy = A704E74C2DB87A16006E7DFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C8DC76C4278E0E5300E77A52 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -234,6 +308,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A704E74F2DB87A16006E7DFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XFGA8N5BXB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lizterangelo.NotesTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NotesApp;
+			};
+			name = Debug;
+		};
+		A704E7502DB87A16006E7DFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XFGA8N5BXB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lizterangelo.NotesTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NotesApp;
+			};
+			name = Release;
+		};
 		C8DC76C8278E0E5300E77A52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -357,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z36VGA9KK8;
+				DEVELOPMENT_TEAM = XFGA8N5BXB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -370,7 +491,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lizter.notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -385,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Z36VGA9KK8;
+				DEVELOPMENT_TEAM = XFGA8N5BXB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -398,7 +519,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.NotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lizter.notes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -409,6 +530,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A704E74E2DB87A16006E7DFF /* Build configuration list for PBXNativeTarget "NotesTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A704E74F2DB87A16006E7DFF /* Debug */,
+				A704E7502DB87A16006E7DFF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C8DC76B1278E0E5200E77A52 /* Build configuration list for PBXProject "NotesApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
