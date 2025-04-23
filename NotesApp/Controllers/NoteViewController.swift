@@ -44,12 +44,13 @@ class NoteViewController: UIViewController {
 
     private func setupNavigationBarItem() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
-        doneButton.accessibilityIdentifier = "notes.note.done.button"
+        doneButton.accessibilityIdentifier = "notes.note.done.button" // Already present, ensuring it stays
         navigationItem.rightBarButtonItem = doneButton
     }
 
     private func setupTextView() {
         textView = CustomtextView(frame: .zero)
+        // textView identifier is set in CustomTextView.swift
         view.addSubview(textView)
         textView.delegate = self
         NSLayoutConstraint.activate([
@@ -62,9 +63,9 @@ class NoteViewController: UIViewController {
     
     private func setupTextField() {
         textField = CustomTextField(frame: .zero)
+        // textField identifier is set in CustomTextField.swift
         view.addSubview(textField)
         textField.delegate = self
-        
         NSLayoutConstraint.activate([
             textField.bottomAnchor.constraint(equalTo: textView.topAnchor, constant: -10),
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
