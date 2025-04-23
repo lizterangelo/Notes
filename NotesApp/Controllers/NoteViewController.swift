@@ -44,7 +44,7 @@ class NoteViewController: UIViewController {
 
     private func setupNavigationBarItem() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissKeyboard))
-        doneButton.accessibilityIdentifier = "notes.note.done.button" // Already present, ensuring it stays
+        doneButton.accessibilityIdentifier = "notes.finishEditing.button" // Renamed from notes.note.done.button
         navigationItem.rightBarButtonItem = doneButton
     }
 

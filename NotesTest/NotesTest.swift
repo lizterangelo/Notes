@@ -28,24 +28,24 @@ final class NotesTest: XCTestCase {
         app.launch()
 
         // 1. Tap the add button
-        let addButton = app.buttons["notes.main.add.button"]
+        let addButton = app.buttons["notes.addNote.button"] // Use new identifier
         XCTAssertTrue(addButton.waitForExistence(timeout: 5), "Add button should exist")
         addButton.tap()
 
         // 2. Find the title text field and type "Thesis Test"
-        let titleTextField = app.textFields["notes.note.title.textfield"]
+        let titleTextField = app.textFields["notes.editTitle.textfield"] // Use new identifier
         XCTAssertTrue(titleTextField.waitForExistence(timeout: 5), "Title text field should exist")
         titleTextField.tap()
         titleTextField.typeText("Thesis Test")
 
         // 3. Find the body text view and type "Hello World"
-        let bodyTextView = app.textViews["notes.note.body.textview"]
+        let bodyTextView = app.textViews["notes.editBody.textview"] // Use new identifier
         XCTAssertTrue(bodyTextView.waitForExistence(timeout: 5), "Body text view should exist")
         bodyTextView.tap()
         bodyTextView.typeText("Hello World")
 
         // 4. Tap the Done button (optional, dismisses keyboard)
-        let doneButton = app.buttons["notes.note.done.button"]
+        let doneButton = app.buttons["notes.finishEditing.button"] // Use new identifier
          if doneButton.exists {
              doneButton.tap()
          }
@@ -58,10 +58,14 @@ final class NotesTest: XCTestCase {
         backButton.tap()
 
         // 6. Verify that a cell with the title "Thesis Test" exists in the main view's table
-        let notesTable = app.tables["notes.main.notes.tableview"]
+        let notesTable = app.tables["notes.notesList.tableview"] // Use new identifier
         XCTAssertTrue(notesTable.waitForExistence(timeout: 5), "Notes table should exist")
 
         // Check for a static text element within the table that matches the title
+        // Note: The cell's internal label identifiers were also renamed, but finding the cell
+        // by the title text itself is usually sufficient and less brittle in UI tests.
+        // If needed, you could access the specific label like:
+        // let newNoteCellTitleLabel = notesTable.cells.containing(.staticText, identifier:"Thesis Test").staticTexts["notes.noteCell.<ID>.titleLabel"]
         let newNoteCellTitle = notesTable.staticTexts["Thesis Test"]
         XCTAssertTrue(newNoteCellTitle.waitForExistence(timeout: 5), "Newly added note with title 'Thesis Test' should exist in the table")
     }

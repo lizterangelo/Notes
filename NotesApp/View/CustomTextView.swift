@@ -15,7 +15,7 @@ class CustomtextView: UITextView {
         let font = UIFont.systemFont(ofSize: 20)
         self.font = font
         self.autocorrectionType = .no
-        self.accessibilityIdentifier = "notes.note.body.textview"
+        self.accessibilityIdentifier = "notes.editBody.textview" // Renamed from notes.note.body.textview
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)

@@ -26,7 +26,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.separatorColor = .systemGray3
-        tableView.accessibilityIdentifier = "notes.main.notes.tableview"
+        tableView.accessibilityIdentifier = "notes.notesList.tableview" // Renamed from notes.main.notes.tableview
         self.tableView = tableView
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

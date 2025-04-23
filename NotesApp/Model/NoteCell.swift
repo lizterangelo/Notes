@@ -73,11 +73,11 @@ class NoteCell: UITableViewCell {
         }
         dateLabel.text = formatter.string(from: note.date)
 
-        // Set accessibility identifiers after configuring labels
-        self.accessibilityIdentifier = "notes.main.cell.\(note.id ?? "unknown")"
-        self.textLabel?.accessibilityIdentifier = "notes.main.cell.\(note.id ?? "unknown").title.label"
-        self.detailTextLabel?.accessibilityIdentifier = "notes.main.cell.\(note.id ?? "unknown").detail.label"
-        self.dateLabel?.accessibilityIdentifier = "notes.main.cell.\(note.id ?? "unknown").date.label"
+        // Set accessibility identifiers after configuring labels (Renamed pattern)
+        self.accessibilityIdentifier = "notes.noteCell.\(note.id ?? "unknown")"
+        self.textLabel?.accessibilityIdentifier = "notes.noteCell.\(note.id ?? "unknown").titleLabel"
+        self.detailTextLabel?.accessibilityIdentifier = "notes.noteCell.\(note.id ?? "unknown").detailLabel"
+        self.dateLabel?.accessibilityIdentifier = "notes.noteCell.\(note.id ?? "unknown").dateLabel"
     }
     func configure(note: Note) {
         self.note = note
