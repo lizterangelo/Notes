@@ -71,6 +71,54 @@ final class NotesTest: XCTestCase {
     }
 
     @MainActor
+    func testSearchNote() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // 1. Tap the add button
+        let addButton = app.buttons["notes.addNote.button"]
+        XCTAssertTrue(addButton.waitForExistence(timeout: 5), "Add button should exist")
+        addButton.tap()
+
+        // 2. Find the title text field and type "Search Test Note"
+        let titleTextField = app.textFields["notes.editTitle.textfield"]
+        XCTAssertTrue(titleTextField.waitForExistence(timeout: 5), "Title text field should exist")
+        titleTextField.tap()
+        let noteTitle = "Search Test Note \(UUID().uuidString)" // Unique title
+        titleTextField.typeText(noteTitle)
+
+        // 3. Find the body text view and type "This note is for testing search."
+        let bodyTextView = app.textViews["notes.editBody.textview"]
+        XCTAssertTrue(bodyTextView.waitForExistence(timeout: 5), "Body text view should exist")
+        bodyTextView.tap()
+        bodyTextView.typeText("This note is for testing search.")
+
+        // 4. Tap the Done button (optional, dismisses keyboard)
+        let doneButton = app.buttons["notes.finishEditing.button"]
+         if doneButton.exists {
+             doneButton.tap()
+         }
+
+        // 5. Tap the back button
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        XCTAssertTrue(backButton.waitForExistence(timeout: 5), "Back button should exist")
+        backButton.tap()
+
+        // 6. Tap the search bar and type the note title
+        let searchBar = app.searchFields["notes.searchNotes.searchbar"]
+        XCTAssertTrue(searchBar.waitForExistence(timeout: 5), "Search bar should exist")
+        searchBar.tap()
+        searchBar.typeText(noteTitle)
+
+        // 7. Verify that the note with the title "Search Test Note" exists in the table
+        let notesTable = app.tables["notes.notesList.tableview"]
+        XCTAssertTrue(notesTable.waitForExistence(timeout: 5), "Notes table should exist")
+        
+        let searchedNoteCellTitle = notesTable.staticTexts[noteTitle]
+        XCTAssertTrue(searchedNoteCellTitle.waitForExistence(timeout: 10), "Searched note with title '\(noteTitle)' should exist in the table")
+    }
+
+    @MainActor
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
