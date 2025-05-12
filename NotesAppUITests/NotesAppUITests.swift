@@ -31,4 +31,51 @@ final class NotesAppUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
+    func testAddNote() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Arrange
+        let addButton = app.buttons["addButton"]
+        let notesTableView = app.tables["notesTableView"]
+        let titleTextField = app.textFields["noteTitleTextField"]
+        let contentTextView = app.textViews["noteContentTextView"]
+        let doneButton = app.buttons["doneButton"]
+
+        let noteTitle = "Thesis test by lizter"
+        let noteContent = "this is a test"
+
+        // Act
+        XCTAssertTrue(addButton.exists, "Add button should exist")
+        addButton.tap()
+
+        // Wait for the NoteViewController to appear and elements to exist
+        XCTAssertTrue(titleTextField.waitForExistence(timeout: 5), "Title text field should exist")
+        XCTAssertTrue(contentTextView.exists, "Content text view should exist")
+        XCTAssertTrue(doneButton.exists, "Done button should exist")
+
+        titleTextField.tap()
+        titleTextField.typeText(noteTitle)
+
+        contentTextView.tap()
+        contentTextView.typeText(noteContent)
+
+        doneButton.tap()
+
+        // Assert
+        // Verify that the app is back on the main screen and the new note is visible
+        XCTAssertTrue(notesTableView.waitForExistence(timeout: 5), "Notes table view should exist after saving")
+
+        // Find the cell containing the new note's title
+        let newNoteCell = notesTableView.cells.containing(.staticText, identifier: noteTitle).firstMatch
+        XCTAssertTrue(newNoteCell.exists, "New note cell with title '\(noteTitle)' should exist")
+
+        // Verify the content within the found cell
+        let noteContentLabel = newNoteCell.staticTexts["noteContentLabel"]
+        XCTAssertTrue(noteContentLabel.exists, "Note content label should exist in the cell")
+        XCTAssertEqual(noteContentLabel.label, noteContent, "Note content should match the entered text")
+
+        // Optional: Clean up the created note if needed for test independence
+        // This would involve finding the cell and swiping to delete, but let's keep it simple for now.
+    }
 }

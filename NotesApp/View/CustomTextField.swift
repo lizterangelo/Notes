@@ -15,6 +15,7 @@ class CustomTextField: UITextField {
         let font = UIFont.boldSystemFont(ofSize: 28)
         self.font = font
         self.autocorrectionType = .no
+        self.accessibilityIdentifier = "noteTitleTextField" // Add accessibility identifier
         let attributes: [NSAttributedString.Key: Any] = [
             .font: font,
             .foregroundColor: UIColor.gray
