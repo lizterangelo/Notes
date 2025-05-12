@@ -20,7 +20,7 @@
 - Test happy paths and edge cases/errors. Write tests for bugs.
 
 ## UI TESTING
-- Use accessibility identifiers. Add them if missing.
+- Create accessibility identifiers if they don't exist. Use them in tests.
 - Start each test with a clean app state (XCUIApplication().launch() in setUp()).
 - Set continueAfterFailure = false.
 - Avoid sleep(). Use waitForExistence(timeout:) or XCTestExpectation.
