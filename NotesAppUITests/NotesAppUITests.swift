@@ -31,4 +31,60 @@ final class NotesAppUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
+    @MainActor
+    func testAddNote() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Tap the add button
+        let addButton = app.buttons["addButton"]
+        XCTAssertTrue(addButton.exists, "Add button should exist")
+        addButton.tap()
+
+        // Type into the title and body fields
+        let titleTextField = app.textFields["noteTitleTextField"]
+        let bodyTextView = app.textViews["noteBodyTextView"]
+
+        XCTAssertTrue(titleTextField.exists, "Title text field should exist")
+        XCTAssertTrue(bodyTextView.exists, "Body text view should exist")
+
+        titleTextField.tap()
+        titleTextField.typeText("thesis title")
+
+        bodyTextView.tap()
+        bodyTextView.typeText("Thesis body")
+
+        // Dismiss the keyboard by tapping the Done button
+        let doneButton = app.navigationBars.buttons["Done"]
+        XCTAssertTrue(doneButton.exists, "Done button should exist")
+        doneButton.tap()
+
+        // Navigate back to the main screen
+        let backButton = app.navigationBars.buttons["Notes"] // Assuming the back button title is "Notes"
+        XCTAssertTrue(backButton.exists, "Back button should exist")
+        backButton.tap()
+
+        // Verify the new note appears in the table view
+        let notesTable = app.tables.firstMatch
+        XCTAssertTrue(notesTable.exists, "Notes table should exist")
+
+        // Find the cell with the specific title and body
+        // We can't directly query the cell by its content in this way easily.
+        // Instead, we can find the cell by its title label's accessibility identifier and value.
+        let newNoteTitleLabel = notesTable.staticTexts["thesis title"]
+        XCTAssertTrue(newNoteTitleLabel.exists, "Note with title 'thesis title' should exist in the table")
+
+        // Optionally, verify the body text as well, though finding the exact detailTextLabel
+        // associated with the correct cell can be tricky without more specific identifiers per cell.
+        // For simplicity, we'll rely on the title for now. If needed, we could add cell-specific
+        // identifiers or iterate through cells.
+
+        // A more robust check would be to find the cell containing the title and then check its subtitle.
+        let cellContainingTitle = notesTable.cells.containing(.staticText, identifier: "noteCellTitleLabel").matching(identifier: "thesis title").firstMatch
+        XCTAssertTrue(cellContainingTitle.exists, "Cell containing 'thesis title' should exist")
+
+        let bodyLabelInCell = cellContainingTitle.staticTexts["noteCellBodyLabel"]
+        XCTAssertTrue(bodyLabelInCell.exists, "Body label should exist in the cell")
+        XCTAssertEqual(bodyLabelInCell.label, "Thesis body", "Body label should contain 'Thesis body'")
+    }
 }
