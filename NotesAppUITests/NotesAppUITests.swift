@@ -40,4 +40,36 @@ final class NotesAppUITests: XCTestCase {
             }
         }
     }
+
+    @MainActor
+    func testAddNewNote() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        // Tap the add button
+        app.buttons["rectangle.stack.badge.plus"].tap()
+
+        // Type the title
+        let titleTextField = app.textFields.firstMatch
+        XCTAssertTrue(titleTextField.exists, "Title text field should exist")
+        titleTextField.tap()
+        titleTextField.typeText("Thesis test by lizter")
+
+        // Type the content
+        let contentTextView = app.textViews.firstMatch
+        XCTAssertTrue(contentTextView.exists, "Content text view should exist")
+        contentTextView.tap()
+        contentTextView.typeText("this is a test")
+
+        // Tap the done button to save
+        app.navigationBars.buttons["Done"].tap()
+
+        // Verify the app is back on the main screen
+        let notesNavigationBar = app.navigationBars["Notes"]
+        XCTAssertTrue(notesNavigationBar.exists, "Should be back on the Notes main screen")
+
+        // Verify the new note appears in the table view
+        let newNoteCell = app.tables.cells.staticTexts["Thesis test by lizter"]
+        XCTAssertTrue(newNoteCell.exists, "New note with title 'Thesis test by lizter' should exist in the table view")
+    }
 }
