@@ -14,7 +14,7 @@ class AddButton: UIButton {
         self.setImage(UIImage(systemName: "rectangle.stack.badge.plus"), for: .normal)
         self.contentVerticalAlignment = .fill
         self.contentHorizontalAlignment = .fill
-        self.accessibilityIdentifier = "addButton" // Add accessibility identifier
+        self.accessibilityIdentifier = "addButton1" // Add accessibility identifier
     }
     
     required init?(coder: NSCoder) {

@@ -37,7 +37,7 @@ final class NotesAppUITests: XCTestCase {
         app.launch()
 
         // Tap the add button
-        let addButton = app.buttons["addButton"]
+        let addButton = app.buttons["addButton1"]
         XCTAssertTrue(addButton.exists, "Add buttox1n should exist")
         addButton.tap()
 
