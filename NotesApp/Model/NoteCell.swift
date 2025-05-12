@@ -18,14 +18,9 @@ class NoteCell: UITableViewCell {
         self.backgroundColor = .systemBackground
         textLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
         detailTextLabel?.font = .systemFont(ofSize: 20, weight: .regular)
-
-        // Add accessibility identifiers to labels
-        textLabel?.accessibilityIdentifier = "noteTitleLabel"
-        detailTextLabel?.accessibilityIdentifier = "noteContentLabel"
-
         setupDateLabel()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError()
     }
