@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,10 +58,6 @@
 		C8DC76D1278E0F3200E77A52 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C8DC76D3278E14EA00E77A52 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		A704E7472DB87A16006E7DFF /* NotesTest */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = NotesTest; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A704E7432DB87A16006E7DFF /* Frameworks */ = {
@@ -125,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				C8DC76B8278E0E5200E77A52 /* NotesApp */,
-				A704E7472DB87A16006E7DFF /* NotesTest */,
 				C8DC76B7278E0E5200E77A52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,9 +166,6 @@
 			);
 			dependencies = (
 				A704E74D2DB87A16006E7DFF /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A704E7472DB87A16006E7DFF /* NotesTest */,
 			);
 			name = NotesTest;
 			packageProductDependencies = (
