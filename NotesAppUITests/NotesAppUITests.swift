@@ -38,11 +38,11 @@ final class NotesAppUITests: XCTestCase {
 
         // Tap the add button
         let addButton = app.buttons["addButton"]
-        XCTAssertTrue(addButton.exists, "Add button should exist")
+        XCTAssertTrue(addButton.exists, "Add buttox1n should exist")
         addButton.tap()
 
         // Type into the title and body fields
-        let titleTextField = app.textFields["noteTitleTextField"]
+        let titleTextField = app.textFields["TitleTextField"]
         let bodyTextView = app.textViews["noteBodyTextView"]
 
         XCTAssertTrue(titleTextField.exists, "Title text field should exist")

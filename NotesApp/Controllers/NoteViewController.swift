@@ -63,8 +63,8 @@ class NoteViewController: UIViewController {
         textField = CustomTextField(frame: .zero)
         view.addSubview(textField)
         textField.delegate = self
-        textField.accessibilityIdentifier = "noteTitleTextField" // Add accessibility identifier
-        
+        textField.accessibilityIdentifier = "TitleTextField" // Add accessibility identifier
+
         NSLayoutConstraint.activate([
             textField.bottomAnchor.constraint(equalTo: textView.topAnchor, constant: -10),
             textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
