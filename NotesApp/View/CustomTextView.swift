@@ -15,7 +15,6 @@ class CustomtextView: UITextView {
         let font = UIFont.systemFont(ofSize: 20)
         self.font = font
         self.autocorrectionType = .no
-        self.accessibilityIdentifier = "noteContentTextView" // Add accessibility identifier
     }
     
     required init?(coder: NSCoder) {
