@@ -39,6 +39,42 @@ final class NotesAppUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+
+        @MainActor
+        func testAddNewNote() throws {
+            let app = XCUIApplication()
+            app.launch()
+
+            // Tap the add button using its accessibility identifier
+            let addButton = app.buttons["addButton"]
+            XCTAssertTrue(addButton.waitForExistence(timeout: 5), "Add button should exist and be hittable")
+            addButton.tap()
+
+            // Enter title using its accessibility identifier
+            let titleTextField = app.textFields["noteTitleTextField"]
+            XCTAssertTrue(titleTextField.waitForExistence(timeout: 5), "Title text field should exist and be hittable")
+            titleTextField.tap() // Tap to activate the text field
+            titleTextField.typeText("Thesis test by lizter")
+
+            // Enter content using its accessibility identifier
+            let contentTextView = app.textViews["noteContentTextView"]
+            XCTAssertTrue(contentTextView.waitForExistence(timeout: 5), "Content text view should exist and be hittable")
+            contentTextView.tap() // Tap to activate the text view
+            contentTextView.typeText("this is a test")
+
+            // Tap the "Done" button in the navigation bar
+            let doneButton = app.navigationBars.buttons["Done"]
+            XCTAssertTrue(doneButton.waitForExistence(timeout: 5), "Done button should exist and be hittable")
+            doneButton.tap()
+
+            // Verify return to the main screen by checking for the "Notes" title
+            let notesTitle = app.navigationBars["Notes"]
+            XCTAssertTrue(notesTitle.waitForExistence(timeout: 5), "Should return to the Notes screen")
+
+            // Optional: Add steps here to verify the new note appears in the list
+            // and potentially delete it for test cleanup. This would require
+            // identifying the table view and the cell for the new note.
+        }
     }
 
     @MainActor

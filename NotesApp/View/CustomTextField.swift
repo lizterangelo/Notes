@@ -20,6 +20,7 @@ class CustomTextField: UITextField {
             .foregroundColor: UIColor.gray
         ]
         self.attributedPlaceholder = NSAttributedString(string: "Title", attributes: attributes)
+        self.accessibilityIdentifier = "noteTitleTextField" // Add accessibility identifier
     }
     
     required init?(coder: NSCoder) {
